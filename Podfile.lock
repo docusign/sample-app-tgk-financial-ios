@@ -1,0 +1,20 @@
+PODS:
+  - DocuSign (2.5.3)
+  - IQKeyboardManagerSwift (6.5.6)
+
+DEPENDENCIES:
+  - DocuSign
+  - IQKeyboardManagerSwift
+
+SPEC REPOS:
+  trunk:
+    - DocuSign
+    - IQKeyboardManagerSwift
+
+SPEC CHECKSUMS:
+  DocuSign: 00ce0722022d84e5e2042916188e4641b96a6eaf
+  IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
+
+PODFILE CHECKSUM: 197966dd441c4b0c6857b09a601a4c5912e1448b
+
+COCOAPODS: 1.10.1
