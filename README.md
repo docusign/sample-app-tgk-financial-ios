@@ -1,7 +1,7 @@
 # TGK: DocuSign Sample Application
 
 ## Introduction
-TGK is a DocuSign sample application demonstrating how the DocuSign iOS SDK can be used to in a Host iOS app related to Investments. TGK is written in Swift using UIKit and Story boards. You can find a live instance running at "Link needed here for Appetize"
+TGK is a DocuSign sample application demonstrating how the DocuSign iOS SDK can be used to in a Host iOS app related to Investments. TGK is written in Swift using UIKit and Story boards. [You can find a live instance running](https://appetize.io/embed/h04rcr0rzjkk9f8p9cgev233wg).
 
 TGK demonstrates the following:
 1. Authentication
