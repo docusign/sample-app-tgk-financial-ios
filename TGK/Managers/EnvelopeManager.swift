@@ -2,6 +2,11 @@
 import DocuSignSDK
 import Foundation
 
+class TGKColors {
+    public static let navigationBackButtonTintColor = UIColor.blue
+    public static let background = UIColor.black
+    public static let foreground = UIColor.white
+}
 
 class EnvelopesManager {
     // singleton instance
@@ -35,6 +40,39 @@ class EnvelopesManager {
     @objc func handleDSMSigningCompletedNotification(notification: Notification) {
         syncEnvelopes()
     }
+        
+    func offlineCacheAndSign(presentingController: UIViewController, envelopeId: String, completion: @escaping (UIViewController?, Error?) -> Void) {
+        
+        // `Downloading remote envelopes for offline signing` is disabled for now as this feature is in beta.
+        
+        // Download the remote envelope from DocuSign Server with a given envelope Id
+        /* self.mDSMEnvelopesManager?.downloadEnvelope(withId: envelopeId) { _, error in
+            
+            guard error == nil else {
+                // Handle error ...
+                return
+            }
+            
+            DispatchQueue.main.async {
+                // Envelope download is complete, start offline signing ceremony
+                self.resumeOfflineSigning(presentingViewController: presentingController, envelopeId: envelopeId, completion: completion)
+            }
+        } */
+    }
+    
+    func resumeOfflineSigning(presentingViewController: UIViewController, envelopeId: String, completion: @escaping (UIViewController?, Error?) -> Void) {
+        // Optionally customize the Appearance to match the host app theme
+        // applyAppearance()
+        
+        // Launch offline signing
+        self.mDSMEnvelopesManager?.resumeSigningEnvelope(withPresenting: presentingViewController, envelopeId: envelopeId, completion: completion)
+    }
+    
+    func applyAppearance() {
+         DSMAppearance.setNavigationBarTitleTextColor(TGKColors.navigationBackButtonTintColor)
+         DSMAppearance.setNavigationBarTintColor(TGKColors.background)
+         DSMAppearance.setBarButtonItemsTintColor(TGKColors.foreground)
+    }
     
     func composeEnvelopeOffline(presentingController: UIViewController) {
         
@@ -44,7 +82,7 @@ class EnvelopesManager {
         
         let recipientId: String = "1"
         tabBuilder.addRecipientId(recipientId)
-        tabBuilder.addFrame(CGRect(x: 100, y: 100, width: 50, height: 50))
+        tabBuilder.addFrame(CGRect(x: 400, y: 600, width: 50, height: 40))
         tabBuilder.addPageNumber(1)
         
         let recipientBuilder = DSMRecipientBuilder(for: .signer)

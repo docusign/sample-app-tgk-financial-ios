@@ -17,7 +17,7 @@ class ViewAgreementVC: UIViewController {
         super.viewDidLoad()
         
         investmentAmountTextField.text = client.investmentAmount
-        clientNumberTextField.text = client.phone
+        clientNumberTextField.text = client.clientNumber
         checkerInvestorButton.isSelected = checkerInvestorButtonSelected
     }
     
@@ -63,15 +63,15 @@ class ViewAgreementVC: UIViewController {
         
         let threeHundred = UIAlertAction(title: "$300,000", style: .default , handler:{ (UIAlertAction)in
             //            print("User click 300,000 button")
-            self.investmentAmountTextField.text = "300,000"
+            self.investmentAmountTextField.text = "$300,000"
         })
         let fourHundred = UIAlertAction(title: "$400,000", style: .default , handler:{ (UIAlertAction)in
             print("User click 400,000 button")
             
-            self.investmentAmountTextField.text = "400,000"
+            self.investmentAmountTextField.text = "$400,000"
         })
         let fiveHundred = UIAlertAction(title: "$500,000", style: .default , handler:{ (UIAlertAction)in
-            self.investmentAmountTextField.text = "500,000"
+            self.investmentAmountTextField.text = "$500,000"
         })
         
         let dismiss = UIAlertAction(title: "Dismiss", style: .default, handler: nil)
@@ -104,16 +104,28 @@ class ViewAgreementVC: UIViewController {
         let message = "Please select one of the following options"
         let agreementAlert = UIAlertController(title: title, message: message, preferredStyle: .alert)
 
-        agreementAlert.addAction(UIAlertAction(title: "Offline Envelope", style: .default, handler: { _ in
+        agreementAlert.addAction(UIAlertAction(title: "Offline Compose", style: .default, handler: { _ in
             self.composeEnvelopeOffline()
         }))
         
+        agreementAlert.addAction(UIAlertAction(title: "Offline Remote Envelope", style: .default, handler: { _ in
+            self.signEnvelopeOffline()
+        }))
+
         agreementAlert.addAction(UIAlertAction(title: "Captive Signing", style: .default, handler: { _ in
             self.captiveSigning()
         }))
         
         agreementAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler:nil))
         self.present(agreementAlert, animated: true, completion: nil)
+    }
+    
+    func signEnvelopeOffline() {
+        // Add a valid offline signing envelope Id (guid)
+        let envelopeId = "<your-envelope-id-here-guid>"
+        EnvelopesManager.shared.offlineCacheAndSign(presentingController: self, envelopeId: envelopeId) {_,_ in
+            
+        }
     }
     
     func composeEnvelopeOffline() {
@@ -134,7 +146,41 @@ class ViewAgreementVC: UIViewController {
             case .success(let data):
                 let  envelopeID = data.envelopeId
                 DispatchQueue.main.async {
-                    EnvelopesManager.shared.mDSMEnvelopesManager?.presentCaptiveSigning(withPresenting: self, envelopeId: envelopeID, recipientUserName: "Triston Gilbert", recipientEmail: "thomas_template_demo@dsxtr.com", recipientClientUserId: "1", animated: true, completion: { _,_  in })
+                    EnvelopesManager.shared.mDSMEnvelopesManager?.presentCaptiveSigning(
+                        withPresenting: self,
+                        envelopeId: envelopeID,
+                        recipientUserName: "Triston Gilbert",
+                        recipientEmail: "triston.gilbert@dsxtr.com",
+                        recipientClientUserId: "1",
+                        animated: true,
+                        completion: { _,_  in })
+                }
+            }
+        }
+    }
+    
+    func captiveSigningWithURL() {
+        
+        guard let token: String = Keychain.value(forKey: "token") else {
+            return
+        }
+        
+        webService.createEnvelope(accessToken: token) { result in
+            
+            switch result {
+            case .failure(let error):
+                print(error)
+            case .success(let data):
+                let envelopeID = data.envelopeId
+                let signingUrl = self.webService.getSigningURL(for: envelopeID)
+                DispatchQueue.main.async {
+                    EnvelopesManager.shared.mDSMEnvelopesManager?.presentCaptiveSigning(
+                        withPresenting: self,
+                        signingUrl: signingUrl,
+                        envelopeId: envelopeID,
+                        recipientId: nil,
+                        animated: true,
+                        completion: { _,_  in })
                 }
             }
         }
