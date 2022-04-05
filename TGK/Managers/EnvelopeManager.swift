@@ -69,8 +69,7 @@ class EnvelopesManager {
     }
     
     func applyAppearance() {
-         DSMAppearance.setNavigationBarTitleTextColor(TGKColors.navigationBackButtonTintColor)
-         DSMAppearance.setNavigationBarTintColor(TGKColors.background)
+        DSMAppearance.setNavigationBarTitleTextColor(TGKColors.navigationBackButtonTintColor, backgroundTintColor: TGKColors.background, fontSize: 12)
          DSMAppearance.setBarButtonItemsTintColor(TGKColors.foreground)
     }
     
