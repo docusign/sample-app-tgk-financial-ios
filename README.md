@@ -5,7 +5,7 @@ TGK is a DocuSign sample application demonstrating how the DocuSign iOS SDK can 
 
 TGK demonstrates the following:
 1. Authentication
-    * [Authentication Code Grant](https://developers.docusign.com/esign-rest-api/guides/authentication/oauth2-code-grant)
+    * [Authentication Code Grant](https://developers.docusign.com/platform/auth/authcode/)
 2. Offline Enevelope Creation and Signing
     * Ability to create and DSEnvelopeDefinition Object with tabs and recipients.
     * Ability to start offline signing.
