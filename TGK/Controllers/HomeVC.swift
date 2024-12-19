@@ -21,7 +21,6 @@ class HomeVC: UIViewController {
     
         navigationItem.setHidesBackButton(true, animated: true)
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Log out", style: .plain, target: self, action: #selector(playTapped))
-        navigationItem.rightBarButtonItem?.tintColor = .white
         view.bringSubviewToFront(overview)
     }
     

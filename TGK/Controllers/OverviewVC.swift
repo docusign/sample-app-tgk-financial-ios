@@ -1,5 +1,6 @@
 
 import UIKit
+import DocuSignSDK
 
 class OverviewVC: UIViewController {
 
@@ -19,6 +20,40 @@ class OverviewVC: UIViewController {
         }
         
         tableView.register(UINib(nibName: "OverviewDocCell", bundle: nil), forCellReuseIdentifier: "OverviewDocCell")
+    }
+    
+    @IBAction func executeAPIButtonTapped(_ sender: Any) {
+        let basePath: String = Keychain.value(forKey: KeychainKeys.baseUrl)! // Base path for API calls (demo/prod)
+        if let accountId: String = Keychain.value(forKey: KeychainKeys.accountId){ // Param needed for API call
+            
+            // Initializing the API client with the access token and base url
+            DSClientAPI.init(basePath: basePath , customHeaders: [:])
+            
+            let activityIndicator = UIActivityIndicatorView(style: .large)
+            activityIndicator.frame = CGRect(x: 0, y: 0, width: 80, height: 80)
+            activityIndicator.center = self.view.center
+            self.view.addSubview(activityIndicator)
+            activityIndicator.startAnimating()
+            // Picking the needed api call and providing the needed params for this api call
+            AccountsAPI.accountsGetAccount(accountId: accountId, includeAccountSettings: nil, completion: { data, error in
+                activityIndicator.stopAnimating()
+                //completion handling for error and sucess of request
+                if let error = error {
+                    let message = error.localizedDescription
+                    let alert = UIAlertController(title: "Request failed", message: message, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                    print(error)
+                }
+                else {
+                    let message = "AccountName: \(String(describing: data?.accountName))\n PlanName: \(String(describing: data?.planName))"
+                    let alert = UIAlertController(title: "Request Successful", message: message, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                    print(message)
+                }
+            })
+        }
     }
 }
 

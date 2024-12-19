@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -35,16 +35,40 @@
 		426699C326C5745E00FB15D7 /* Portfolio.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 426699C226C5745E00FB15D7 /* Portfolio.pdf */; };
 		781928F526C5C7B000B72E35 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425C895226848D3D00C94727 /* SettingsVC.swift */; };
 		78FE580926C5C8FA006256F7 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FE580826C5C8FA006256F7 /* Keychain.swift */; };
-		AEB53ACC43E4684FEF03E332 /* Pods_TGK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61F3C46DE792A7416FD34CCB /* Pods_TGK.framework */; };
-		D91457232685CEBF0080124B /* AuthorizationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91457222685CEBF0080124B /* AuthorizationResponse.swift */; };
-		D91457272685CFC80080124B /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91457262685CFC80080124B /* APIRouter.swift */; };
+		D900A7852D124C7D0035A370 /* DocuSignAPI in Frameworks */ = {isa = PBXBuildFile; productRef = D900A7842D124C7D0035A370 /* DocuSignAPI */; };
+		D900A7872D124C7D0035A370 /* DocuSignSDK in Frameworks */ = {isa = PBXBuildFile; productRef = D900A7862D124C7D0035A370 /* DocuSignSDK */; };
+		D900A7892D1359DE0035A370 /* DocuSignAPI in Frameworks */ = {isa = PBXBuildFile; productRef = D900A7882D1359DE0035A370 /* DocuSignAPI */; };
+		D900A78B2D1359DE0035A370 /* DocuSignSDK in Frameworks */ = {isa = PBXBuildFile; productRef = D900A78A2D1359DE0035A370 /* DocuSignSDK */; };
+		D900A78D2D135A620035A370 /* DocuSignAPI in Frameworks */ = {isa = PBXBuildFile; productRef = D900A78C2D135A620035A370 /* DocuSignAPI */; };
+		D900A78F2D135A620035A370 /* DocuSignSDK in Frameworks */ = {isa = PBXBuildFile; productRef = D900A78E2D135A620035A370 /* DocuSignSDK */; };
+		D900A7932D139AF10035A370 /* DocuSignAPI in Frameworks */ = {isa = PBXBuildFile; productRef = D900A7922D139AF10035A370 /* DocuSignAPI */; };
+		D900A7952D139AF10035A370 /* DocuSignSDK in Frameworks */ = {isa = PBXBuildFile; productRef = D900A7942D139AF10035A370 /* DocuSignSDK */; };
 		D91457292685D7B50080124B /* URLRequest+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91457282685D7B50080124B /* URLRequest+Extension.swift */; };
-		D965B0942684BA78005504A4 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D965B0932684BA78005504A4 /* WebService.swift */; };
 		D965B0972684D92B005504A4 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D965B0962684D92B005504A4 /* String+Extension.swift */; };
+		D99388572D0C1FC20065F070 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D99388562D0C1FC20065F070 /* IQKeyboardManagerSwift */; };
+		D99757E82D10E293001FCA34 /* DocuSignAPI in Frameworks */ = {isa = PBXBuildFile; productRef = D99757E72D10E293001FCA34 /* DocuSignAPI */; };
+		D99757EA2D10E293001FCA34 /* DocuSignSDK in Frameworks */ = {isa = PBXBuildFile; productRef = D99757E92D10E293001FCA34 /* DocuSignSDK */; };
+		D9C510022D120643004069EE /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D9C510012D120643004069EE /* IQKeyboardManagerSwift */; };
+		D9C510052D1222A7004069EE /* DocuSignAPI in Frameworks */ = {isa = PBXBuildFile; productRef = D9C510042D1222A7004069EE /* DocuSignAPI */; };
+		D9C510072D1222A7004069EE /* DocuSignSDK in Frameworks */ = {isa = PBXBuildFile; productRef = D9C510062D1222A7004069EE /* DocuSignSDK */; };
+		D9C510092D122365004069EE /* DocuSignAPI in Frameworks */ = {isa = PBXBuildFile; productRef = D9C510082D122365004069EE /* DocuSignAPI */; };
+		D9C5100B2D122365004069EE /* DocuSignSDK in Frameworks */ = {isa = PBXBuildFile; productRef = D9C5100A2D122365004069EE /* DocuSignSDK */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		D99757E12D0CB1BC001FCA34 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		316BCF1013471A6076F271D7 /* Pods-TGK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TGK.debug.xcconfig"; path = "Target Support Files/Pods-TGK/Pods-TGK.debug.xcconfig"; sourceTree = "<group>"; };
 		420315D82670C02E001B226B /* AgreementVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AgreementVC.storyboard; sourceTree = "<group>"; };
 		420315DB2670C0F8001B226B /* AgreementVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreementVC.swift; sourceTree = "<group>"; };
 		420315DF2670C10A001B226B /* PortfolioVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioVC.swift; sourceTree = "<group>"; };
@@ -74,13 +98,8 @@
 		42661E902671FB64003E3122 /* ViewAgreementVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewAgreementVC.xib; sourceTree = "<group>"; };
 		426699BF26C54D2800FB15D7 /* KeychainKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainKeys.swift; sourceTree = "<group>"; };
 		426699C226C5745E00FB15D7 /* Portfolio.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Portfolio.pdf; sourceTree = "<group>"; };
-		61F3C46DE792A7416FD34CCB /* Pods_TGK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TGK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		78FE580826C5C8FA006256F7 /* Keychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
-		9770A5C37AC8EB10579920A5 /* Pods-TGK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TGK.release.xcconfig"; path = "Target Support Files/Pods-TGK/Pods-TGK.release.xcconfig"; sourceTree = "<group>"; };
-		D91457222685CEBF0080124B /* AuthorizationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationResponse.swift; sourceTree = "<group>"; };
-		D91457262685CFC80080124B /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
 		D91457282685D7B50080124B /* URLRequest+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+Extension.swift"; sourceTree = "<group>"; };
-		D965B0932684BA78005504A4 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		D965B0962684D92B005504A4 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -89,7 +108,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AEB53ACC43E4684FEF03E332 /* Pods_TGK.framework in Frameworks */,
+				D99388572D0C1FC20065F070 /* IQKeyboardManagerSwift in Frameworks */,
+				D900A78B2D1359DE0035A370 /* DocuSignSDK in Frameworks */,
+				D900A7852D124C7D0035A370 /* DocuSignAPI in Frameworks */,
+				D900A78F2D135A620035A370 /* DocuSignSDK in Frameworks */,
+				D9C5100B2D122365004069EE /* DocuSignSDK in Frameworks */,
+				D900A7892D1359DE0035A370 /* DocuSignAPI in Frameworks */,
+				D900A7872D124C7D0035A370 /* DocuSignSDK in Frameworks */,
+				D9C510072D1222A7004069EE /* DocuSignSDK in Frameworks */,
+				D9C510022D120643004069EE /* IQKeyboardManagerSwift in Frameworks */,
+				D900A7952D139AF10035A370 /* DocuSignSDK in Frameworks */,
+				D9C510092D122365004069EE /* DocuSignAPI in Frameworks */,
+				D99757EA2D10E293001FCA34 /* DocuSignSDK in Frameworks */,
+				D9C510052D1222A7004069EE /* DocuSignAPI in Frameworks */,
+				D900A78D2D135A620035A370 /* DocuSignAPI in Frameworks */,
+				D900A7932D139AF10035A370 /* DocuSignAPI in Frameworks */,
+				D99757E82D10E293001FCA34 /* DocuSignAPI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,9 +184,8 @@
 			isa = PBXGroup;
 			children = (
 				4250E7372664E6320005F6E7 /* TGK */,
+				D99757DC2D0CB1BC001FCA34 /* Frameworks */,
 				4250E7362664E6320005F6E7 /* Products */,
-				CC2C363C53E11A600B407726 /* Pods */,
-				CC5F6948A37B513D478563F2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -173,7 +206,6 @@
 				424467CF26A19AE000F545A9 /* Models */,
 				424467B226A193A600F545A9 /* Managers */,
 				D965B0952684D914005504A4 /* Extensions */,
-				D965B0922684BA6A005504A4 /* Network */,
 				42284AF1266CB9FC00B58984 /* Controllers */,
 				42284AC12667D8BE00B58984 /* Resources */,
 				4250E7412664E6410005F6E7 /* Assets.xcassets */,
@@ -208,41 +240,6 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
-		CC2C363C53E11A600B407726 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				316BCF1013471A6076F271D7 /* Pods-TGK.debug.xcconfig */,
-				9770A5C37AC8EB10579920A5 /* Pods-TGK.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
-		CC5F6948A37B513D478563F2 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				61F3C46DE792A7416FD34CCB /* Pods_TGK.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		D91457212685CEAB0080124B /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				D91457222685CEBF0080124B /* AuthorizationResponse.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		D965B0922684BA6A005504A4 /* Network */ = {
-			isa = PBXGroup;
-			children = (
-				D91457212685CEAB0080124B /* Models */,
-				D965B0932684BA78005504A4 /* WebService.swift */,
-				D91457262685CFC80080124B /* APIRouter.swift */,
-			);
-			path = Network;
-			sourceTree = "<group>";
-		};
 		D965B0952684D914005504A4 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -252,6 +249,13 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		D99757DC2D0CB1BC001FCA34 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -259,12 +263,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4250E7492664E6410005F6E7 /* Build configuration list for PBXNativeTarget "TGK" */;
 			buildPhases = (
-				1462A7F8713F7B66ABD94582 /* [CP] Check Pods Manifest.lock */,
 				4250E7312664E6320005F6E7 /* Sources */,
 				4250E7322664E6320005F6E7 /* Frameworks */,
 				4250E7332664E6320005F6E7 /* Resources */,
-				516B568EC4B023422C7CF781 /* [CP] Embed Pods Frameworks */,
-				FC5B0D77746DC30E2FEEAD28 /* [CP] Copy Pods Resources */,
+				D99757E12D0CB1BC001FCA34 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -298,6 +300,10 @@
 				Base,
 			);
 			mainGroup = 4250E72C2664E6320005F6E7;
+			packageReferences = (
+				D9C510002D120643004069EE /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				D99F22562D13DC6F005881B6 /* XCRemoteSwiftPackageReference "native-ios-sdk" */,
+			);
 			productRefGroup = 4250E7362664E6320005F6E7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -326,71 +332,11 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		1462A7F8713F7B66ABD94582 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-TGK-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		516B568EC4B023422C7CF781 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TGK/Pods-TGK-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TGK/Pods-TGK-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TGK/Pods-TGK-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FC5B0D77746DC30E2FEEAD28 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TGK/Pods-TGK-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TGK/Pods-TGK-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TGK/Pods-TGK-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		4250E7312664E6320005F6E7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D965B0942684BA78005504A4 /* WebService.swift in Sources */,
 				42284ACA2668BDFF00B58984 /* VCFactory.swift in Sources */,
 				4250E73D2664E6320005F6E7 /* LoginVC.swift in Sources */,
 				4203789C26789D38004760F2 /* EmptyDataLabel.swift in Sources */,
@@ -404,12 +350,10 @@
 				D965B0972684D92B005504A4 /* String+Extension.swift in Sources */,
 				424467B626A193BC00F545A9 /* EnvelopeManager.swift in Sources */,
 				42284B2526708A2400B58984 /* OverviewDocCell.swift in Sources */,
-				D91457232685CEBF0080124B /* AuthorizationResponse.swift in Sources */,
 				420315DC2670C0F8001B226B /* AgreementVC.swift in Sources */,
 				42661E912671FB64003E3122 /* ViewAgreementVC.swift in Sources */,
 				42284B20266FEECB00B58984 /* OverviewVC.swift in Sources */,
 				42037899267899AA004760F2 /* PendingSyncVC.swift in Sources */,
-				D91457272685CFC80080124B /* APIRouter.swift in Sources */,
 				4250E7392664E6320005F6E7 /* AppDelegate.swift in Sources */,
 				42284B0C266E12E300B58984 /* HomeVC.swift in Sources */,
 				424467CD26A19AD500F545A9 /* ClientModel.swift in Sources */,
@@ -557,7 +501,6 @@
 		};
 		4250E74A2664E6410005F6E7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 316BCF1013471A6076F271D7 /* Pods-TGK.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -579,7 +522,6 @@
 		};
 		4250E74B2664E6410005F6E7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9770A5C37AC8EB10579920A5 /* Pods-TGK.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -621,6 +563,126 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D900A7912D139AF10035A370 /* XCRemoteSwiftPackageReference "native-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/docusign/native-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.5.0;
+			};
+		};
+		D99388552D0C1FC20065F070 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		D99F22562D13DC6F005881B6 /* XCRemoteSwiftPackageReference "native-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/docusign/native-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.5.0;
+			};
+		};
+		D9C510002D120643004069EE /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.0;
+			};
+		};
+		D9C5100C2D122709004069EE /* XCRemoteSwiftPackageReference "native-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/docusign/native-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.5.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D900A7842D124C7D0035A370 /* DocuSignAPI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D9C5100C2D122709004069EE /* XCRemoteSwiftPackageReference "native-ios-sdk" */;
+			productName = DocuSignAPI;
+		};
+		D900A7862D124C7D0035A370 /* DocuSignSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D9C5100C2D122709004069EE /* XCRemoteSwiftPackageReference "native-ios-sdk" */;
+			productName = DocuSignSDK;
+		};
+		D900A7882D1359DE0035A370 /* DocuSignAPI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D9C5100C2D122709004069EE /* XCRemoteSwiftPackageReference "native-ios-sdk" */;
+			productName = DocuSignAPI;
+		};
+		D900A78A2D1359DE0035A370 /* DocuSignSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D9C5100C2D122709004069EE /* XCRemoteSwiftPackageReference "native-ios-sdk" */;
+			productName = DocuSignSDK;
+		};
+		D900A78C2D135A620035A370 /* DocuSignAPI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D9C5100C2D122709004069EE /* XCRemoteSwiftPackageReference "native-ios-sdk" */;
+			productName = DocuSignAPI;
+		};
+		D900A78E2D135A620035A370 /* DocuSignSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D9C5100C2D122709004069EE /* XCRemoteSwiftPackageReference "native-ios-sdk" */;
+			productName = DocuSignSDK;
+		};
+		D900A7922D139AF10035A370 /* DocuSignAPI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D900A7912D139AF10035A370 /* XCRemoteSwiftPackageReference "native-ios-sdk" */;
+			productName = DocuSignAPI;
+		};
+		D900A7942D139AF10035A370 /* DocuSignSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D900A7912D139AF10035A370 /* XCRemoteSwiftPackageReference "native-ios-sdk" */;
+			productName = DocuSignSDK;
+		};
+		D99388562D0C1FC20065F070 /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D99388552D0C1FC20065F070 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
+		};
+		D99757E72D10E293001FCA34 /* DocuSignAPI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DocuSignAPI;
+		};
+		D99757E92D10E293001FCA34 /* DocuSignSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DocuSignSDK;
+		};
+		D9C510012D120643004069EE /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D9C510002D120643004069EE /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
+		};
+		D9C510042D1222A7004069EE /* DocuSignAPI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DocuSignAPI;
+		};
+		D9C510062D1222A7004069EE /* DocuSignSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DocuSignSDK;
+		};
+		D9C510082D122365004069EE /* DocuSignAPI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DocuSignAPI;
+		};
+		D9C5100A2D122365004069EE /* DocuSignSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DocuSignSDK;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4250E72D2664E6320005F6E7 /* Project object */;
 }

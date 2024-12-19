@@ -11,8 +11,6 @@ class LogInViewController: UIViewController {
     
     var webAuthSession: ASWebAuthenticationSession?
     
-    let webService = WebService()
-
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -37,65 +35,30 @@ class LogInViewController: UIViewController {
     }
     
     func getAuthTokenWithWebLogin() {
-        guard let clientId = StoredSetting.key else { return }
-        guard let redirectUri = StoredSetting.uri else { return }
         updateSignInButtonState(enabled: false)
-        let authURL = URL(string: "https://account-d.docusign.com/oauth/auth?response_type=code&scope=signature&client_id=\(clientId)&redirect_uri=\(redirectUri)")
-        let callbackUrlScheme = redirectUri.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
-
-        self.webAuthSession = ASWebAuthenticationSession.init(url: authURL!, callbackURLScheme: callbackUrlScheme, completionHandler: { [weak self] (callBack:URL?, error:Error?) in
-
-            guard error == nil, let successURL = callBack else {
-                self?.updateSignInButtonState(enabled: true)
-                return
-            }
-
-            let oauthToken = NSURLComponents(string: (successURL.absoluteString))?.queryItems?.filter({$0.name == "code"}).first
-            guard let code = oauthToken?.value else { return }
+        guard let clientId = StoredSetting.secret else { return }
+        guard let redirectUri = StoredSetting.uri else { return }
+        guard let IK = StoredSetting.key else { return }
+        DSMManager.login(withOAuthEnv: .demo, accountId: clientId, redirectUri: redirectUri, integratorKey: IK) { accountInfo, error in
             
-            self?.webService.getAccessToken(code: code) { result in
-                switch result {
-                case .failure(let error):
-                    self?.updateSignInButtonState(enabled: true)
-                    print(error)
-                case .success(let data):
-                    let accessToken = data.accessToken
-                
-                    Keychain.set(accessToken, forKey: KeychainKeys.token)
-
-                    self?.webService.getUserInfo(accessToken: accessToken) { result in
-                        switch result {
-                        case .failure(let error):
-                            self?.updateSignInButtonState(enabled: true)
-                            print(error)
-                        case .success(let data):
-                            let accountInfo = data.accounts[0]
-                            guard let key = StoredSetting.key else { return }
-                            
-                            let email = data.email
-                            let recipientId = accountInfo.accountId
-                            let signerName = accountInfo.accountName
-                            
-                            Keychain.set(email, forKey: KeychainKeys.accountEmail)
-                            Keychain.set(recipientId, forKey: KeychainKeys.accountId)
-                            Keychain.set(signerName, forKey: KeychainKeys.signerName)
-                            
-                            self?.login(accessToken: accessToken,
-                                        accountId: accountInfo.accountId,
-                                        userId: data.sub,
-                                        userName: accountInfo.accountName,
-                                        email: data.email,
-                                        integratorKey: key)
-                        }
-                    }
+            guard let accountInfo else { return }
+            Keychain.set(accountInfo.accessToken, forKey: KeychainKeys.token)
+            Keychain.set(accountInfo.email, forKey: KeychainKeys.accountEmail)
+            Keychain.set(accountInfo.accountId, forKey: KeychainKeys.accountId)
+            Keychain.set(accountInfo.userName, forKey: KeychainKeys.signerName)
+            Keychain.set(accountInfo.host.absoluteString, forKey: KeychainKeys.baseUrl)
+            
+            self.updateSignInButtonState(enabled: true)
+            if let error = error {
+                print("Error logging in: \(error)")
+            } else {
+                print("User authenticated")
+                let homeVC = VCFactory.createHomeVC()
+                DispatchQueue.main.async {
+                    self.navigationController?.pushViewController(homeVC, animated: true)
                 }
             }
-        })
-
-        self.webAuthSession?.presentationContextProvider = self
-        self.webAuthSession?.prefersEphemeralWebBrowserSession = true
-
-        self.webAuthSession?.start()
+        }
     }
     
     func updateSignInButtonState(enabled: Bool) {
@@ -117,7 +80,8 @@ class LogInViewController: UIViewController {
                host: String = "https://demo.docusign.net/restapi",
                integratorKey: String) {
         guard let hostURL = URL(string: host) else { return }
-        DSMManager.login(withAccessToken: accessToken, accountId: accountId, userId: userId, userName: userName, email: email, host: hostURL, integratorKey: integratorKey) { [weak self] accountInfo, error in
+        
+        DSMManager.login(withAccessToken: accessToken, accountId: accountId, userId: userId, userName: userName, email: email, host: hostURL, integratorKey: integratorKey, refreshToken: nil, expiresIn: nil) { [weak self] accountInfo, error in
             
             self?.updateSignInButtonState(enabled: true)
             if let error = error {
@@ -125,7 +89,9 @@ class LogInViewController: UIViewController {
             } else {
                 print("User authenticated")
                 let homeVC = VCFactory.createHomeVC()
-                self?.navigationController?.pushViewController(homeVC, animated: true)
+                DispatchQueue.main.async {
+                    self?.navigationController?.pushViewController(homeVC, animated: true)
+                }
             }
         }
     }
