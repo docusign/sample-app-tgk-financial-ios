@@ -36,9 +36,9 @@ class LogInViewController: UIViewController {
     
     func getAuthTokenWithWebLogin() {
         updateSignInButtonState(enabled: false)
-        guard let clientId = StoredSetting.secret else { return }
+        guard let clientId = StoredSetting.key else { return }
         guard let redirectUri = StoredSetting.uri else { return }
-        guard let IK = StoredSetting.key else { return }
+        guard let IK = StoredSetting.secret else { return }
         DSMManager.login(withOAuthEnv: .demo, accountId: clientId, redirectUri: redirectUri, integratorKey: IK) { accountInfo, error in
             
             guard let accountInfo else { return }
