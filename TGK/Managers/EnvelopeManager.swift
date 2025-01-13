@@ -46,7 +46,7 @@ class EnvelopesManager {
         // `Downloading remote envelopes for offline signing` is disabled for now as this feature is in beta.
         
         // Download the remote envelope from DocuSign Server with a given envelope Id
-        /* self.mDSMEnvelopesManager?.downloadEnvelope(withId: envelopeId) { _, error in
+        self.mDSMEnvelopesManager?.downloadEnvelope(withId: envelopeId) { _, error in
             
             guard error == nil else {
                 // Handle error ...
@@ -57,7 +57,7 @@ class EnvelopesManager {
                 // Envelope download is complete, start offline signing ceremony
                 self.resumeOfflineSigning(presentingViewController: presentingController, envelopeId: envelopeId, completion: completion)
             }
-        } */
+        }
     }
     
     func resumeOfflineSigning(presentingViewController: UIViewController, envelopeId: String, completion: @escaping (UIViewController?, Error?) -> Void) {
@@ -69,8 +69,9 @@ class EnvelopesManager {
     }
     
     func applyAppearance() {
-        DSMAppearance.setNavigationBarTitleTextColor(TGKColors.navigationBackButtonTintColor, backgroundTintColor: TGKColors.background, fontSize: 12)
-         DSMAppearance.setBarButtonItemsTintColor(TGKColors.foreground)
+        DSMAppearance.setNavigationBarTitleTextColor(TGKColors.navigationBackButtonTintColor)
+        DSMAppearance.setNavigationBarTitleTextColor(TGKColors.foreground, backgroundTintColor: TGKColors.background, fontSize: 14)
+        DSMAppearance.setBarButtonItemsTintColor(TGKColors.foreground)
     }
     
     func composeEnvelopeOffline(presentingController: UIViewController) {

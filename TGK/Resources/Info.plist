@@ -61,5 +61,9 @@
 			<string>Editor</string>
 		</dict>
 	</array>
+	<key>AppIdentifierPrefix</key>
+	<string>$(AppIdentifierPrefix)</string>
+	<key>NSCameraUsageDescription</key>
+	<string>For Capturing Signature</string>
 </dict>
 </plist>

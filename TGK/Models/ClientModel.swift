@@ -19,32 +19,32 @@ struct ClientModel {
 
 struct Clients {
     func createdFakeClientData() -> [ClientModel] {
-        let file1 = ClientModel(firstName: "Tom",
-                                lastName: "Wood",
+        let file1 = ClientModel(firstName: "Triston",
+                                lastName: "Gilbert",
                                 address: "726 Tennessee St",
                                 city: "San Francisco",
                                 state: "California",
                                 country: "U.S.A.",
                                 zipCode: "94107",
-                                email: "tom.wood@digital.com",
-                                phone: "415-555-1234",
+                                email: "Triston.Gilbert@dsxtr.com",
+                                phone: "510-555-1234",
                                 clientNumber: "FA-45231-005",
-                                investmentAmount: "$25,000.00",
-                                datedDoc: "June 20, 2019",
+                                investmentAmount: "$500,000.00",
+                                datedDoc: "Oct 26, 2021",
                                 status: "Unsigned")
         
         let file2 = ClientModel(firstName: "Andrea",
                                 lastName: "Ruhn",
-                                address: "726 Tennessee St",
+                                address: "221 Berkeley Drive",
                                 city: "Los Angeles",
                                 state: "California",
                                 country: "U.S.A.",
-                                zipCode: "70707",
+                                zipCode: "90039",
                                 email: "andrea.ruhn@digital.com",
-                                phone: "555-666-1234",
+                                phone: "213-666-1234",
                                 clientNumber: "FA-43224-086",
                                 investmentAmount: "$300,000.00",
-                                datedDoc: "May 18, 2020",
+                                datedDoc: "Oct 26, 2021",
                                 status: "Unsigned")
         let files = [file1, file2]
         return files

@@ -7,4 +7,5 @@ struct KeychainKeys {
     static let accountEmail = "kAccountEmail"
     static let accountId = "kAccountId"
     static let signerName = "kSignerName"
+    static let baseUrl = "kBaseUrl"
 }

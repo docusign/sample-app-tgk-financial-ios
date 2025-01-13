@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Pil-lQ-Kab">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Pil-lQ-Kab">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logInBackground" translatesAutoresizingMaskIntoConstraints="NO" id="asE-9s-UfZ">
-                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="92" width="414" height="804"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By continuing, you agree to the Terms of Use and Privacy Policy" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8nN-mH-0M4">
                                 <rect key="frame" x="20" y="828" width="374" height="14"/>
@@ -69,7 +70,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TGK Capital" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rBU-lN-R4G">
-                                <rect key="frame" x="20" y="108" width="374" height="298"/>
+                                <rect key="frame" x="20" y="112" width="374" height="294"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -80,6 +81,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.52599078420000001" green="0.6303722262" blue="0.70552343129999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" systemColor="labelColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8nN-mH-0M4" secondAttribute="trailing" constant="20" id="2HX-XO-5FG"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="8nN-mH-0M4" secondAttribute="bottom" constant="20" id="4gT-pk-Nrr"/>
@@ -102,16 +104,18 @@
                             <constraint firstItem="asE-9s-UfZ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ywX-AE-NCo"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Log In" id="xe6-ed-NJW">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="settings" id="hK4-Cv-JnF">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <navigationItem key="navigationItem" title="Log In" id="I6T-j2-dRn">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="6qQ-G6-9WF">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="settings" id="Jia-3Q-ELG">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <action selector="ellipsisAction:" destination="BYZ-38-t0r" id="gIq-J3-dMA"/>
+                                <action selector="ellipsisAction:" destination="BYZ-38-t0r" id="VGH-Cf-ODc"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="ellipsisBarButtonItem" destination="hK4-Cv-JnF" id="NjU-GW-WTO"/>
                         <outlet property="loginActivity" destination="iEB-lj-vju" id="wdH-zg-Alu"/>
                         <outlet property="signInButton" destination="zH6-op-Ff8" id="GZJ-Pg-cUE"/>
                     </connections>
@@ -124,16 +128,65 @@
         <scene sceneID="eJV-aw-m8s">
             <objects>
                 <navigationController id="Pil-lQ-Kab" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Yc5-To-cxc">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" opaque="NO" contentMode="scaleToFill" barStyle="black" id="Yc5-To-cxc">
+                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.50588518380000003" green="0.62222349639999996" blue="0.71398097279999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" name="0166FF"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
                         <textAttributes key="largeTitleTextAttributes">
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
+                        <navigationBarAppearance key="standardAppearance">
+                            <color key="backgroundColor" name="0166FF"/>
+                            <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <textAttributes key="titleTextAttributes">
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </textAttributes>
+                            <textAttributes key="largeTitleTextAttributes">
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </textAttributes>
+                            <barButtonItemAppearance key="buttonAppearance">
+                                <barButtonItemStateAppearance key="normal">
+                                    <textAttributes key="titleTextAttributes">
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </textAttributes>
+                                </barButtonItemStateAppearance>
+                                <barButtonItemStateAppearance key="highlighted"/>
+                                <barButtonItemStateAppearance key="disabled"/>
+                                <barButtonItemStateAppearance key="focused"/>
+                            </barButtonItemAppearance>
+                            <barButtonItemAppearance key="doneButtonAppearance">
+                                <barButtonItemStateAppearance key="normal">
+                                    <textAttributes key="titleTextAttributes">
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </textAttributes>
+                                </barButtonItemStateAppearance>
+                                <barButtonItemStateAppearance key="highlighted"/>
+                                <barButtonItemStateAppearance key="disabled"/>
+                                <barButtonItemStateAppearance key="focused"/>
+                            </barButtonItemAppearance>
+                            <barButtonItemAppearance key="backButtonAppearance">
+                                <barButtonItemStateAppearance key="normal">
+                                    <textAttributes key="titleTextAttributes">
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </textAttributes>
+                                </barButtonItemStateAppearance>
+                                <barButtonItemStateAppearance key="highlighted"/>
+                                <barButtonItemStateAppearance key="disabled"/>
+                                <barButtonItemStateAppearance key="focused"/>
+                            </barButtonItemAppearance>
+                        </navigationBarAppearance>
                     </navigationBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="mvr-pA-FBC"/>
@@ -147,9 +200,15 @@
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
         <image name="logInBackground" width="250" height="444.66665649414062"/>
-        <image name="settings" width="24" height="24"/>
+        <image name="settings" width="25" height="25"/>
+        <namedColor name="0166FF">
+            <color red="0.0039215686274509803" green="0.40000000000000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
