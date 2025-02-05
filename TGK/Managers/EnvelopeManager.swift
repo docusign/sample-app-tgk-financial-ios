@@ -54,16 +54,16 @@ class EnvelopesManager {
             let recipientDefault = DSMRecipientDefault()
             recipientDefault.recipientType = .inPersonSigner
             recipientDefault.recipientSelectorType = .recipientRoleName
-            recipientDefault.recipientRoleName = "Assistant"
-            recipientDefault.inPersonSignerName = "Assistant"
+            recipientDefault.recipientRoleName = "Role"
+            recipientDefault.inPersonSignerName = "Signer Name"
             recipientDefault.recipientName = username
             recipientDefault.recipientEmail = email
             
             let recipientDefault2 = DSMRecipientDefault()
             recipientDefault2.recipientType = .inPersonSigner
             recipientDefault2.recipientSelectorType = .recipientRoleName
-            recipientDefault2.recipientRoleName = "Tenant"
-            recipientDefault2.inPersonSignerName = "Tenant"
+            recipientDefault2.recipientRoleName = "Role2"
+            recipientDefault2.inPersonSignerName = "Signer Name2"
             recipientDefault2.recipientName = username
             recipientDefault2.recipientEmail = email
             
