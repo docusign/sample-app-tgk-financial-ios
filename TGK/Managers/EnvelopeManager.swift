@@ -14,16 +14,20 @@ class EnvelopesManager {
 
     // DSM Envelopes Manager
     var mDSMEnvelopesManager: DSMEnvelopesManager?
+    var mDSMTemplatesManager: DSMTemplatesManager?
     
     // list of template definitions
     var mEnvelopeDefinitions: [DSMEnvelopeDefinition]?
 
     //This prevents others from using the default '()' initializer for this class.
     private init() {
-        if (self.mDSMEnvelopesManager == nil)
-        {
+        if (self.mDSMEnvelopesManager == nil) {
             self.mDSMEnvelopesManager = DSMEnvelopesManager()
             NotificationCenter.default.addObserver(self, selector: #selector(handleDSMSigningCompletedNotification(notification:)), name: NSNotification.Name.DSMSigningCompleted, object: nil)
+        }
+        
+        if (self.mDSMTemplatesManager == nil) {
+            self.mDSMTemplatesManager = DSMTemplatesManager()
         }
     }
     
@@ -31,7 +35,43 @@ class EnvelopesManager {
     func getCachedEnvelopeIds() -> [String]? {
         return self.mDSMEnvelopesManager?.cachedEnvelopeIds()
     }
-
+    
+    func sendTemplateOffline(templateId: String, presentingVC: UIViewController, completion: @escaping ((UIViewController?, (any Error)?) -> Void)) -> Void {
+        self.mDSMTemplatesManager?.cacheTemplate(withId: templateId) { (error) in
+            if let error = error {
+                completion(nil, error)
+                return
+            }
+            
+            let email: String = Keychain.value(forKey: KeychainKeys.accountEmail)!
+            let username: String = Keychain.value(forKey: KeychainKeys.signerName)!
+            
+            let envelopeDefaults = DSMEnvelopeDefaults()
+            envelopeDefaults.emailBlurb = "Please sign this envelope."
+            envelopeDefaults.emailSubject = "Please sign this envelope."
+            
+            
+            let recipientDefault = DSMRecipientDefault()
+            recipientDefault.recipientType = .inPersonSigner
+            recipientDefault.recipientSelectorType = .recipientRoleName
+            recipientDefault.recipientRoleName = "Assistant"
+            recipientDefault.inPersonSignerName = "Assistant"
+            recipientDefault.recipientName = username
+            recipientDefault.recipientEmail = email
+            
+            let recipientDefault2 = DSMRecipientDefault()
+            recipientDefault2.recipientType = .inPersonSigner
+            recipientDefault2.recipientSelectorType = .recipientRoleName
+            recipientDefault2.recipientRoleName = "Tenant"
+            recipientDefault2.inPersonSignerName = "Tenant"
+            recipientDefault2.recipientName = username
+            recipientDefault2.recipientEmail = email
+            
+            envelopeDefaults.recipientDefaults = [recipientDefault, recipientDefault2]
+            
+            self.mDSMTemplatesManager?.presentSendTemplateControllerWithTemplate(withId: templateId, envelopeDefaults: envelopeDefaults, pdfToInsert: nil, insertAtPosition: .beginning, signingMode: .offline, presenting: presentingVC, animated: true, completion: completion)
+        }
+    }
 
     func syncEnvelopes() -> Void {
         self.mDSMEnvelopesManager?.syncEnvelopes()

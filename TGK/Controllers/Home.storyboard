@@ -200,7 +200,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6gf-76-dKg">
-                                                <rect key="frame" x="0.0" y="29.333333333333314" width="410" height="269"/>
+                                                <rect key="frame" x="0.0" y="29.333333333333329" width="410" height="224.66666666666669"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <connections>
@@ -209,7 +209,7 @@
                                                 </connections>
                                             </tableView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dvo-1F-uVM">
-                                                <rect key="frame" x="0.0" y="308.33333333333331" width="410" height="34.333333333333314"/>
+                                                <rect key="frame" x="0.0" y="264" width="410" height="34.333333333333314"/>
                                                 <color key="backgroundColor" systemColor="systemFillColor"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="Execute API call"/>
@@ -217,6 +217,16 @@
                                                 <connections>
                                                     <action selector="executeAPIButtonTapped:" destination="iqE-j6-Ozp" eventType="touchUpInside" id="Gng-kf-2QX"/>
                                                     <action selector="executeAPITapped:" destination="waA-gf-dug" eventType="touchUpInside" id="VnE-yU-jtD"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dqb-fB-GDp" userLabel="Sign Template offline">
+                                                <rect key="frame" x="0.0" y="308.33333333333331" width="410" height="34.333333333333314"/>
+                                                <color key="backgroundColor" systemColor="systemFillColor"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Execute API call"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Sign Template offline"/>
+                                                <connections>
+                                                    <action selector="signTemplateOffline:" destination="iqE-j6-Ozp" eventType="touchUpInside" id="DsU-vm-iRG"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -276,10 +286,10 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemFillColor">
-            <color red="0.47058823529999999" green="0.47058823529999999" blue="0.50196078430000002" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.47058823529411764" green="0.47058823529411764" blue="0.50196078431372548" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
