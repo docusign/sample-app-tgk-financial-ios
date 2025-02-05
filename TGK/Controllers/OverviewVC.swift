@@ -21,6 +21,21 @@ class OverviewVC: UIViewController {
         
         tableView.register(UINib(nibName: "OverviewDocCell", bundle: nil), forCellReuseIdentifier: "OverviewDocCell")
     }
+    @IBAction func signTemplateOffline(_ sender: Any) {
+        let templateIdEntry = UIAlertController(title: "Enter Remote Template ID", message: nil, preferredStyle: .alert)
+        templateIdEntry.addTextField()
+
+            let submitAction = UIAlertAction(title: "Submit", style: .default) { [unowned templateIdEntry] _ in
+                let templateId = templateIdEntry.textFields![0]
+                EnvelopesManager.shared.sendTemplateOffline(templateId: templateId.text ?? "", presentingVC: self) { _, error in
+                    if error != nil {
+                        print("Error: \(String(describing: error))")
+                    }
+                }
+            }
+        templateIdEntry.addAction(submitAction)
+            present(templateIdEntry, animated: true)
+    }
     
     @IBAction func executeAPIButtonTapped(_ sender: Any) {
         let basePath: String = Keychain.value(forKey: KeychainKeys.baseUrl)! // Base path for API calls (demo/prod)
