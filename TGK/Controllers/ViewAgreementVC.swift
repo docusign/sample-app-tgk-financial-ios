@@ -206,10 +206,6 @@ class ViewAgreementVC: UIViewController {
             }
         }
     }
-    
-    func cachedEnvelope() {
-        EnvelopesManager.shared.mDSMEnvelopesManager?.presentComposeEnvelopeController(withPresenting: self, signingMode: .offline, resumeWithDraft: true, animated: true, completion: { _ in })
-    }
 }
 
 extension UIEdgeInsets {
