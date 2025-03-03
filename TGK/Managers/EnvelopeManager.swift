@@ -1,5 +1,6 @@
 
 import DocuSignSDK
+import DocusignNative
 import Foundation
 
 class TGKColors {
@@ -14,16 +15,25 @@ class EnvelopesManager {
 
     // DSM Envelopes Manager
     var mDSMEnvelopesManager: DSMEnvelopesManager?
+    var mDSMTemplatesManager: DSMTemplatesManager?
+    var mNativeSigningManager: NativeSigningManager?
     
     // list of template definitions
     var mEnvelopeDefinitions: [DSMEnvelopeDefinition]?
 
     //This prevents others from using the default '()' initializer for this class.
     private init() {
-        if (self.mDSMEnvelopesManager == nil)
-        {
+        if (self.mDSMEnvelopesManager == nil) {
             self.mDSMEnvelopesManager = DSMEnvelopesManager()
             NotificationCenter.default.addObserver(self, selector: #selector(handleDSMSigningCompletedNotification(notification:)), name: NSNotification.Name.DSMSigningCompleted, object: nil)
+        }
+        
+        if (self.mDSMTemplatesManager == nil) {
+            self.mDSMTemplatesManager = DSMTemplatesManager()
+        }
+        
+        if (self.mNativeSigningManager == nil) {
+            self.mNativeSigningManager = NativeSigningManager()
         }
     }
     
@@ -31,7 +41,50 @@ class EnvelopesManager {
     func getCachedEnvelopeIds() -> [String]? {
         return self.mDSMEnvelopesManager?.cachedEnvelopeIds()
     }
-
+    
+    func sendTemplateOffline(templateId: String, presentingVC: UIViewController, completion: @escaping ((UIViewController?, (any Error)?) -> Void)) -> Void {
+        self.mDSMTemplatesManager?.cacheTemplate(withId: templateId) { (error) in
+            if let error = error {
+                completion(nil, error)
+                return
+            }
+            
+            let email: String = Keychain.value(forKey: KeychainKeys.accountEmail)!
+            let username: String = Keychain.value(forKey: KeychainKeys.signerName)!
+            
+            let envelopeDefaults = DSMEnvelopeDefaults()
+            envelopeDefaults.emailBlurb = "Please sign this envelope."
+            envelopeDefaults.emailSubject = "Please sign this envelope."
+            
+            
+            let recipientDefault = DSMRecipientDefault()
+            recipientDefault.recipientType = .inPersonSigner
+            recipientDefault.recipientSelectorType = .recipientRoleName
+            recipientDefault.recipientRoleName = "Role"
+            recipientDefault.inPersonSignerName = "Signer Name"
+            recipientDefault.recipientName = username
+            recipientDefault.recipientEmail = email
+            
+            let recipientDefault2 = DSMRecipientDefault()
+            recipientDefault2.recipientType = .inPersonSigner
+            recipientDefault2.recipientSelectorType = .recipientRoleName
+            recipientDefault2.recipientRoleName = "Role2"
+            recipientDefault2.inPersonSignerName = "Signer Name2"
+            recipientDefault2.recipientName = username
+            recipientDefault2.recipientEmail = email
+            
+            envelopeDefaults.recipientDefaults = [recipientDefault, recipientDefault2]
+            
+            Task {
+                do {
+                    let vc = try await self.mNativeSigningManager?.presentSendTemplate(presentingViewController: presentingVC, templateId: templateId, envelopeDefaults: envelopeDefaults, insertAtPosition: .beginning, pdfToInsert: nil, animated: true)
+                    completion(vc, nil)
+                } catch {
+                    completion(nil, error)
+                }
+            }
+        }
+    }
 
     func syncEnvelopes() -> Void {
         self.mDSMEnvelopesManager?.syncEnvelopes()
@@ -65,7 +118,15 @@ class EnvelopesManager {
         // applyAppearance()
         
         // Launch offline signing
-        self.mDSMEnvelopesManager?.resumeSigningEnvelope(withPresenting: presentingViewController, envelopeId: envelopeId, completion: completion)
+        Task {
+            do {
+                let vc = try await self.mNativeSigningManager?.resumeSigning(presentingVC: presentingViewController, envelopeId: envelopeId)
+                completion(vc, nil)
+            } catch let error {
+                print(error)
+                completion(nil, error)
+            }
+        }
     }
     
     func applyAppearance() {
@@ -111,10 +172,16 @@ class EnvelopesManager {
             
             if let id = envelopeId {
                 // offline
-                self.mDSMEnvelopesManager?.resumeSigningEnvelope(withPresenting: presentingController, envelopeId: id, completion: { _, _ in })
+                Task {
+                    do {
+                        let vc = try await self.mNativeSigningManager?.resumeSigning(presentingVC: presentingController, envelopeId: id)
+                    } catch let error {
+                        print(error)
+                    }
+                }
             } else {
                 // online
-                self.showAlert(presentingController: presentingController, message: error.localizedDescription)
+                self.showAlert(presentingController: presentingController, message: error?.localizedDescription ?? "Can't create envelope")
             }
         })
     }
