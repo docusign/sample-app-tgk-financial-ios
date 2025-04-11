@@ -36,11 +36,11 @@
 		781928F526C5C7B000B72E35 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425C895226848D3D00C94727 /* SettingsVC.swift */; };
 		78FE580926C5C8FA006256F7 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FE580826C5C8FA006256F7 /* Keychain.swift */; };
 		D91457292685D7B50080124B /* URLRequest+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91457282685D7B50080124B /* URLRequest+Extension.swift */; };
-		D961F99A2D728C6900F76979 /* DocusignNative in Frameworks */ = {isa = PBXBuildFile; productRef = D961F9992D728C6900F76979 /* DocusignNative */; };
 		D965B0972684D92B005504A4 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D965B0962684D92B005504A4 /* String+Extension.swift */; };
 		D99388572D0C1FC20065F070 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D99388562D0C1FC20065F070 /* IQKeyboardManagerSwift */; };
-		D9C509B92D534060006D0D2C /* DocuSignAPI in Frameworks */ = {isa = PBXBuildFile; productRef = D9C509B82D534060006D0D2C /* DocuSignAPI */; };
-		D9C509BB2D534060006D0D2C /* DocuSignSDK in Frameworks */ = {isa = PBXBuildFile; productRef = D9C509BA2D534060006D0D2C /* DocuSignSDK */; };
+		D9941CB12DA996730082AB74 /* DocuSignAPI in Frameworks */ = {isa = PBXBuildFile; productRef = D9941CB02DA996730082AB74 /* DocuSignAPI */; };
+		D9941CB32DA996730082AB74 /* DocuSignSDK in Frameworks */ = {isa = PBXBuildFile; productRef = D9941CB22DA996730082AB74 /* DocuSignSDK */; };
+		D9941CB72DA9A1EF0082AB74 /* DocusignNative in Frameworks */ = {isa = PBXBuildFile; productRef = D9941CB62DA9A1EF0082AB74 /* DocusignNative */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -97,9 +97,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D99388572D0C1FC20065F070 /* IQKeyboardManagerSwift in Frameworks */,
-				D961F99A2D728C6900F76979 /* DocusignNative in Frameworks */,
-				D9C509BB2D534060006D0D2C /* DocuSignSDK in Frameworks */,
-				D9C509B92D534060006D0D2C /* DocuSignAPI in Frameworks */,
+				D9941CB72DA9A1EF0082AB74 /* DocusignNative in Frameworks */,
+				D9941CB32DA996730082AB74 /* DocuSignSDK in Frameworks */,
+				D9941CB12DA996730082AB74 /* DocuSignAPI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -554,7 +554,7 @@
 			repositoryURL = "https://github.com/docusign/native-ios-sdk.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 4.0.0;
+				minimumVersion = 4.0.1;
 			};
 		};
 		D9C510002D120643004069EE /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
@@ -568,25 +568,25 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		D961F9992D728C6900F76979 /* DocusignNative */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D9C509B62D532BF6006D0D2C /* XCRemoteSwiftPackageReference "native-ios-sdk" */;
-			productName = DocusignNative;
-		};
 		D99388562D0C1FC20065F070 /* IQKeyboardManagerSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D99388552D0C1FC20065F070 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
 			productName = IQKeyboardManagerSwift;
 		};
-		D9C509B82D534060006D0D2C /* DocuSignAPI */ = {
+		D9941CB02DA996730082AB74 /* DocuSignAPI */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D9C509B62D532BF6006D0D2C /* XCRemoteSwiftPackageReference "native-ios-sdk" */;
 			productName = DocuSignAPI;
 		};
-		D9C509BA2D534060006D0D2C /* DocuSignSDK */ = {
+		D9941CB22DA996730082AB74 /* DocuSignSDK */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D9C509B62D532BF6006D0D2C /* XCRemoteSwiftPackageReference "native-ios-sdk" */;
 			productName = DocuSignSDK;
+		};
+		D9941CB62DA9A1EF0082AB74 /* DocusignNative */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D9C509B62D532BF6006D0D2C /* XCRemoteSwiftPackageReference "native-ios-sdk" */;
+			productName = DocusignNative;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
