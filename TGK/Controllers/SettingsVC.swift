@@ -5,7 +5,9 @@ import UIKit
 
 class SettingsVC: UIViewController {
 
+    // Contains the user id
     @IBOutlet weak var keyTextField: UITextField!
+    /// Contains the Integrator Key
     @IBOutlet weak var secretTextField: UITextField!
     @IBOutlet weak var uriTextField: UITextField!
     @IBOutlet weak var saveButton: UIButton!
