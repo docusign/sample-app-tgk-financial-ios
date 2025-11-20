@@ -2,7 +2,7 @@
 import UIKit
 import DocuSignAPI
 
-class ViewAgreementVC: UIViewController {
+class ViewAgreementVC: UIViewController, AlertPresentable {
     
     @IBOutlet weak var clientNumberTextField: UITextField!
     @IBOutlet weak var investmentAmountTextField: UITextField!
@@ -151,6 +151,7 @@ class ViewAgreementVC: UIViewController {
         EnvelopesAPI.envelopesPostEnvelopes(accountId: accountId, body: envelopeDefinition) { data, error in
             guard error == nil else {
                 print(error!)
+                self.showAlert(message: error?.localizedDescription ?? "Can't create envelope")
                 return
             }
             
@@ -180,6 +181,7 @@ class ViewAgreementVC: UIViewController {
         EnvelopesAPI.envelopesPostEnvelopes(accountId: accountId, body: envelopeDefinition) { data, error in
             guard error == nil else {
                 print(error!)
+                self.showAlert(message: error?.localizedDescription ?? "Can't create envelope")
                 return
             }
             
@@ -207,7 +209,6 @@ class ViewAgreementVC: UIViewController {
         }
     }
 }
-
 extension UIEdgeInsets {
     var vertical: CGFloat { top + bottom }
     var horizontal: CGFloat { right + left }

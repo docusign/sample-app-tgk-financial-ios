@@ -3,7 +3,7 @@ import UIKit
 import AuthenticationServices
 import DocuSignSDK
 
-class LogInViewController: UIViewController {
+class LogInViewController: UIViewController, AlertPresentable {
     
     @IBOutlet weak var ellipsisBarButtonItem: UIBarButtonItem!
     @IBOutlet weak var loginActivity: UIActivityIndicatorView!
@@ -51,6 +51,7 @@ class LogInViewController: UIViewController {
             self.updateSignInButtonState(enabled: true)
             if let error = error {
                 print("Error logging in: \(error)")
+                self.showAlert(message: error.localizedDescription)
             } else {
                 print("User authenticated")
                 let homeVC = VCFactory.createHomeVC()

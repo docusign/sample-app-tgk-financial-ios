@@ -2,7 +2,7 @@
 import UIKit
 import DocuSignSDK
 
-class OverviewVC: UIViewController {
+class OverviewVC: UIViewController, AlertPresentable {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var chartImage: UIImageView!
@@ -30,6 +30,7 @@ class OverviewVC: UIViewController {
                 EnvelopesManager.shared.sendTemplateOffline(templateId: templateId.text ?? "", presentingVC: self) { _, error in
                     if error != nil {
                         print("Error: \(String(describing: error))")
+                        self.showAlert(message: error?.localizedDescription ?? "Can't create envelope")
                     }
                 }
             }

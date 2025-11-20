@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		41EE27EC2ECFCBDD00D9AED0 /* AlertPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EE27EB2ECFCBD700D9AED0 /* AlertPresentable.swift */; };
 		420315D92670C02E001B226B /* AgreementVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 420315D82670C02E001B226B /* AgreementVC.storyboard */; };
 		420315DC2670C0F8001B226B /* AgreementVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420315DB2670C0F8001B226B /* AgreementVC.swift */; };
 		420315E02670C10A001B226B /* PortfolioVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420315DF2670C10A001B226B /* PortfolioVC.swift */; };
@@ -57,6 +58,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		41EE27EB2ECFCBD700D9AED0 /* AlertPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresentable.swift; sourceTree = "<group>"; };
 		420315D82670C02E001B226B /* AgreementVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AgreementVC.storyboard; sourceTree = "<group>"; };
 		420315DB2670C0F8001B226B /* AgreementVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreementVC.swift; sourceTree = "<group>"; };
 		420315DF2670C10A001B226B /* PortfolioVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioVC.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 		42284AF1266CB9FC00B58984 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				41EE27EB2ECFCBD700D9AED0 /* AlertPresentable.swift */,
 				420315D82670C02E001B226B /* AgreementVC.storyboard */,
 				420315DB2670C0F8001B226B /* AgreementVC.swift */,
 				420315E22670C11E001B226B /* ContactVC.swift */,
@@ -315,6 +318,7 @@
 			files = (
 				42284ACA2668BDFF00B58984 /* VCFactory.swift in Sources */,
 				4250E73D2664E6320005F6E7 /* LoginVC.swift in Sources */,
+				41EE27EC2ECFCBDD00D9AED0 /* AlertPresentable.swift in Sources */,
 				4203789C26789D38004760F2 /* EmptyDataLabel.swift in Sources */,
 				420315E32670C11E001B226B /* ContactVC.swift in Sources */,
 				420378962678999A004760F2 /* TemplatesVC.swift in Sources */,
